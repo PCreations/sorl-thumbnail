@@ -1,5 +1,9 @@
+import sys
+
 from __future__ import unicode_literals
 from django.conf import settings
+
+PythonVersion = sys.version_info[0]
 
 # When True ThumbnailNode.render can raise errors
 THUMBNAIL_DEBUG = False
@@ -110,6 +114,8 @@ THUMBNAIL_LAZY_FILL_EMPTY = False
 
 # Timeout, in seconds, to use when retrieving images with urllib2
 THUMBNAIL_URL_TIMEOUT = None
+
+THUMBNAIL_URL_HEADERS = {'User-Agent': "python-urllib%s/0.6" % PythonVersion}
 
 # Default width when using filters for texts
 THUMBNAIL_FILTER_WIDTH = 500

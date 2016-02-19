@@ -115,8 +115,9 @@ elif PY2:
 def urlopen(url):
     from sorl.thumbnail.conf import settings
 
+    headers = getattr(settings, 'THUMBNAIL_URL_HEADERS')
     req = Request(
         url,
-        headers={'User-Agent': "python-urllib%s/0.6" % PythonVersion}
+        headers=headers
     )
     return _urlopen(req, timeout=settings.THUMBNAIL_URL_TIMEOUT)
