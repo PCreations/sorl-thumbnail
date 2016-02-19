@@ -1,6 +1,5 @@
-import sys
-
 from __future__ import unicode_literals
+import sys
 from django.conf import settings
 
 PythonVersion = sys.version_info[0]
