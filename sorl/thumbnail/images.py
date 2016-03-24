@@ -166,7 +166,14 @@ class DummyImageFile(BaseImageFile):
 
 class UrlStorage(Storage):
     def open(self, name):
-        return urllib2.urlopen(name)
+        from sorl.thumbnail.conf import settings
+
+        headers = getattr(settings, 'THUMBNAIL_URL_HEADERS')
+        req = urllib2.Request(
+            url,
+            headers=headers
+        )
+        return urllib2.urlopen(req)
 
     def exists(self, name):
         try:
