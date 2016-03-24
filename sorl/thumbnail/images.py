@@ -170,7 +170,7 @@ class UrlStorage(Storage):
 
         headers = getattr(settings, 'THUMBNAIL_URL_HEADERS')
         req = urllib2.Request(
-            url,
+            name,
             headers=headers
         )
         return urllib2.urlopen(req)
