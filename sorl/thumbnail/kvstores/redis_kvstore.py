@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-import redis
+import redis, logging
 from sorl.thumbnail.kvstores.base import KVStoreBase
 from sorl.thumbnail.conf import settings
 
