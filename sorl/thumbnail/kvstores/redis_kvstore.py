@@ -21,6 +21,8 @@ class KVStore(KVStoreBase):
             )
 
     def _get_raw(self, key):
+        heroku_logger = logging.getLogger('heroku')
+        heroku_logger.info('REDIS GET {}'.format(key))
         return self.connection.get(key)
 
     def _set_raw(self, key, value):

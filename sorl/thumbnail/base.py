@@ -95,7 +95,8 @@ class ThumbnailBackend(object):
         name = self._get_thumbnail_filename(source, geometry_string, options)
         thumbnail = ImageFile(name, default.storage)
         cached = default.kvstore.get(thumbnail)
-
+        heroku_logger = logging.getLogger('heroku')
+        heroku_logger = logging.getLogger('REDIS get {}'.format(cached))
         if cached:
             return cached
 
